@@ -2,10 +2,8 @@
 # @author Noah Rodenbeek
 
 ## ContactList
-style.min.css
 style.unprefixed.css
 style.prefixed.css
-scripts.min.js
 
 ## Node.js
 lib-cov
