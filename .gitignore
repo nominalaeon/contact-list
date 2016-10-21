@@ -1,0 +1,42 @@
+# Contact List
+# @author Noah Rodenbeek
+
+## ContactList
+app
+style.min.css
+style.unprefixed.css
+style.prefixed.css
+scripts.min.js
+
+## Node.js
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+pids
+logs
+results
+npm-debug.log
+node_modules
+
+## Sass
+.sass-cache
+
+## OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+## Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/

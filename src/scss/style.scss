@@ -1,0 +1,78 @@
+.contacts {
+    border: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin: 2em;
+    overflow: hidden;
+    padding: 0;
+    input {
+        border-radius: .4em;
+        transition: .4s ease-in-out all;
+        &:focus {
+            border-color: #aaa;
+            border-radius: 0;
+        }
+    }
+    .panel-body {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.contacts__form {
+    padding: 2em;
+    width: 100%;
+    >div {
+        margin-right: 1em;
+    }
+}
+
+.contacts__label {
+    display: flex;
+    padding: 2em;
+    padding-bottom: 0;
+    input {
+        background-color: transparent;
+        border: 0;
+        border-bottom: 1px solid transparent;
+        border-radius: 0;
+        box-shadow: none;
+        font-weight: 600;
+        outline: none;
+        transition: .1s ease-in-out background-color;
+        &:focus {
+            background-color: #fff !important;
+            border: 0;
+            border-radius: .2em;
+            box-shadow: none;
+            outline: none;
+            ~label {
+                background-color: #fff;
+            }
+        }
+    }
+    label {
+        align-items: center;
+        display: flex;
+        height: 34px;
+        justify-content: center;
+        margin: 0;
+        margin-top: -1px;
+        margin-left: -1.2em;
+        transition: .1s ease-in-out background-color;
+        width: 1.2em;
+        &:hover {
+            color: inherit;
+            cursor: pointer;
+        }
+    }
+}
+
+.contacts__list {
+    margin: 0;
+    padding: 0;
+    li.list-group-item {
+        border-radius: 0;
+        padding: 1em 2em;
+    }
+}
