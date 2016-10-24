@@ -18,11 +18,51 @@
 
     <body>
 
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-4 visible-md visible-lg">Contact List</h1>
+                <h1 class="display-1 visible-sm">Contact List</h1>
+                <h1 class="visible-xs">Contact List</h1>
+
+                <p class="lead">Learning/experimenting with JavaScript's `class`</p>
+
+                <p>
+                    <a class="btn btn-primary-outline btn-sm" href="https://github.com/nominalaeon/contact-list/archive/develop.zip" role="button">Download</a>
+                    <a class="btn btn-primary btn-sm" href="https://github.com/nominalaeon/contact-list" role="button">View on Github</a>
+                </p>
+            </div>
+        </div>
+
         <div class="contacts col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
 
             <form class="contacts__label form-inline bg-info">
                 <label class="text-primary glyphicon glyphicon-pencil" for="label" title="Edit label for contact list"></label>
                 <input class="form-control" id="label" name="label" type="text" value="New List" />
+            </form>
+
+            <form class="contacts__form form-inline bg-info">
+
+                <div class="form-group">
+                    <input class="contact-form__input form-control" name="first-name" placeholder="First name" type="text">
+                </div>
+
+                <div class="form-group">
+                    <input class="contact-form__input form-control" name="last-name" placeholder="Last name" type="text">
+                </div>
+
+                <button class="contact-form__submit btn btn-info btn-sm" disabled="true" type="button">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+            </form>
+
+            <ul class="contacts__list list-group"></ul>
+        </div>
+
+        <div class="contacts col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+
+            <form class="contacts__label form-inline bg-info">
+                <label class="text-primary glyphicon glyphicon-pencil" for="label" title="Edit label for contact list"></label>
+                <input class="form-control" id="label" name="label" type="text" value="New List 2" />
             </form>
 
             <form class="contacts__form form-inline bg-info">
