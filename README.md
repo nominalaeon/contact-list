@@ -2,4 +2,4 @@
 
 Learning/experimenting with JavaScript's `class`
 
-[Live demo]('https://nominalaeon.github.io/contact-list/')
+[Live demo](https://nominalaeon.github.io/contact-list/)
