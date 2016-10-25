@@ -1,4 +1,3 @@
-
 'use strict';
 
 /** Class representing a contact. */
@@ -9,7 +8,7 @@ class ContactVM {
      * @param {object} contact - Static properties used to populate the getter/setters
      */
     constructor(contact) {
-    	this._vm = {};
+        this._vm = {};
 
         for (var prop in contact) {
             if (!contact.hasOwnProperty(prop)) {
@@ -24,7 +23,7 @@ class ContactVM {
     get $listItem() {
         return this._vm.$listItem || [];
     }
-	set $listItem(listItem) {
+    set $listItem(listItem) {
         this._vm.$listItem = $(listItem);
     }
     get firstName() {
@@ -33,7 +32,7 @@ class ContactVM {
     set firstName(firstName) {
         this._vm.firstName = firstName;
     }
-	get fullName() {
+    get fullName() {
         return this.firstName + ' ' + this.lastName;
     }
     get id() {
@@ -54,9 +53,9 @@ class ContactVM {
             'data-contact="' + this.id + '">' +
             this.fullName +
             '<button type="button" class="contact-list__remove btn btn-danger btn-xs pull-right">' +
-                '<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>' +
+            '<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>' +
             '</button>' +
-        '</li>';
+            '</li>';
         this.$listItem = $(html);
     }
 }
