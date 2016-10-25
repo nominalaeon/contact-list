@@ -41,8 +41,8 @@ class ContactsFactory {
     }
 
     init() {
-        this.getContacts()
-            .then(this.setContacts.bind(this))
+        this.retrieveContacts()
+            .then(this.assignContacts.bind(this))
             .then(this.bindEvents.bind(this));
     }
 
@@ -54,6 +54,22 @@ class ContactsFactory {
         this.contacts = contacts;
     }
 
+    assignContacts(results) {
+        if (results.error) {
+            return results.error;
+        }
+
+        var contacts = this.contacts;
+
+        results.data.contacts.forEach((contact) => {
+            contacts.push(new ContactVM(contact));
+        });
+
+        this.contacts = contacts;
+
+        return this.updateList();
+    }
+
     bindEvents() {
         this.$formGroup.find('.contact-form__input ').off().on('keyup', this.onChangeForm.bind(this));
         this.$formGroup.find('.contact-form__submit').off().on('click', this.onSubmitForm.bind(this));
@@ -62,20 +78,6 @@ class ContactsFactory {
         this.$label.find('input').on('focus', (event) => {
             $(event.currentTarget).select();
         });
-    }
-
-    getContacts() {
-        return APIService.getContacts();
-    }
-
-    getNewContactId() {
-        var id = this.contacts.length + 1;
-        var ids = this.contacts.map(contact => contact.id).sort((a, b) => {
-            return b - a;
-        });
-        var newId = parseInt(ids[0]) + 1;
-
-        return newId.toString();
     }
 
     onChangeForm(event) {
@@ -110,7 +112,7 @@ class ContactsFactory {
 
         var contact = {
             firstName: $firstName.val(),
-            id: this.getNewContactId(),
+            id: this.retrieveNewContactId(),
             lastName: this.$formGroup.find('input[name="last-name"]').val()
         };
 
@@ -120,24 +122,22 @@ class ContactsFactory {
         this.$formGroup.find('.contact-form__submit').prop('disabled', true);
 
         return APIService.postContact(contact)
-            .then(this.setContacts.bind(this))
+            .then(this.assignContacts.bind(this))
             .then(this.bindEvents.bind(this));
     }
 
-    setContacts(results) {
-        if (results.error) {
-            return results.error;
-        }
+    retrieveContacts() {
+        return APIService.getContacts();
+    }
 
-        var contacts = this.contacts;
-
-        results.data.contacts.forEach((contact) => {
-            contacts.push(new ContactVM(contact));
+    retrieveNewContactId() {
+        var id = this.contacts.length + 1;
+        var ids = this.contacts.map(contact => contact.id).sort((a, b) => {
+            return b - a;
         });
+        var newId = parseInt(ids[0]) + 1;
 
-        this.contacts = contacts;
-
-        return this.updateList();
+        return newId.toString();
     }
 
     updateList() {

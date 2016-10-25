@@ -18,7 +18,7 @@ class ContactVM {
             this[prop] = contact[prop];
         }
 
-        this.setRoot();
+        this.buildRoot();
     }
 
     get $listItem() {
@@ -49,7 +49,7 @@ class ContactVM {
         this._vm.lastName = lastName;
     }
 
-    setRoot() {
+    buildRoot() {
         var html = '<li class="list-group-item contact" ' +
             'data-contact="' + this.id + '">' +
             this.fullName +

@@ -90,5 +90,8 @@
     li.list-group-item {
         border-radius: 0;
         padding: 1em 2em;
+        &:first-child {
+            border-top: 0;
+        }
     }
 }
